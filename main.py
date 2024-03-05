@@ -19,7 +19,7 @@ def reorder_rows(A, B):
             A[[i, max_idx]] = A[[max_idx, i]]
             B[[i, max_idx]] = B[[max_idx, i]]
 
-def gauss_seidel(A, B, eps, max_iter=500):
+def gauss_zeidel(A, B, eps, max_iter=100):
     n = len(B)
     if not checkDiagonal(A):
         reorder_rows(A, B)
@@ -69,7 +69,7 @@ aPreoMatrix = np.delete(preobrazMatrix, -1, axis=1)
 # ПРЕОБРАЖЕННАЯ Б МАТРИЦА
 bPreoMatrix = preobrazMatrix[:, -1]
 # ВЫВОД ВЕКТОРА
-print("\n\nВЕКТОРS НЕИЗВЕСТНЫХ\n")
+print("\n\nВЕКТОPS НЕИЗВЕСТНЫХ\n")
 for i, elem in enumerate(aPreoMatrix):
     total = f'x{i + 1} = '
     vectors = []
@@ -86,4 +86,4 @@ for i, elem in enumerate(aPreoMatrix):
 # print(x)
 
 print("\n\nРЕШЕНИЕ, КОЛИЧЕСТВО ИТЕРАЦИЙ И ПОГРЕШНОСТИ\n")
-print(gauss_seidel(Amatrix, Bmatrix, epsilon))
+print(gauss_zeidel(Amatrix, Bmatrix, epsilon))
