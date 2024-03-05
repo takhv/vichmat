@@ -35,7 +35,7 @@ def gauss_zeidel(A, B, eps, max_iter=100):
         print(iteration, x_new, x, np.linalg.norm(x_new - x))
         errors.append(np.linalg.norm(x_new - x))
         if errors[-1] < eps:
-            return "OTVET: " + str(x_new)
+            return "OTBET: " + str(x_new)
         x = x_new
         iteration += 1
     raise ValueError("error")
@@ -46,7 +46,7 @@ print("Вариант: 14")
 inputFile = open('matrix.txt', 'r')
 epsilon = float(inputFile.readline())
 inputMatrix = [line.rstrip().split() for line in inputFile]
-matrix = np.array(inputMatrix, 'int')
+matrix = np.array(inputMatrix, 'float')
 
 Amatrix = np.delete(matrix, -1, axis=1)
 Bmatrix = matrix[:, -1]
